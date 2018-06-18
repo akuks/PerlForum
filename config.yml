@@ -18,7 +18,12 @@ charset: "UTF-8"
 # simple: default and very basic template engine
 # template_toolkit: TT
 
-template: "simple"
+template: "template_toolkit"
+engines:
+    template:
+        template_toolkit:
+        start_tag: '[%'
+        end_tag:   '%]'
 
 # template: "template_toolkit"
 # engines:
@@ -50,3 +55,11 @@ template: "simple"
 #      cookie_name: eshop.session
 #      is_secure: 1
 #      is_http_only: 1
+
+plugins:
+    DBIC:
+        PForums:
+            schema_class: PForums::Schema
+            dsn: dbi:mysql:PForums
+            user: root
+            pass: ''
